@@ -1,0 +1,418 @@
+
+body {
+    background-color: #f4f4f4 !important; /* Cinza claro */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove espaçamento padrão */
+    font-family: Arial, sans-serif;
+}
+
+
+.header {
+  
+  padding-top: 130px; /* Espaço no topo para evitar sobreposição */
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Para garantir que fique acima de outros elementos */
+  
+  display: flex; /* Usando Flexbox para layout */
+  justify-content: space-between; /* Espaça os elementos nas extremidades */
+  align-items: center; /* Alinha verticalmente */
+  font-family: 'French Script MT', cursive; /* Aplica a fonte */
+  font-size: 40px; /* Aumenta o tamanho da fonte (ajuste conforme necessário) */
+  
+  
+  
+}
+
+.logo-container {
+  flex: 0 0 auto; /* Não permite que as imagens cresçam ou encolham */
+}
+.logo-esquerda, .logo-direita {
+  height: 85px; /* Altura fixa para as imagens */
+  max-width: 100%; /* Impede que a largura ultrapasse o container */
+  object-fit: contain; /* Mantém a proporção da imagem */
+}
+
+.imagem-lateral {
+  height: 50px; /* Altura fixa para as imagens laterais */
+  max-width: 100%; /* Impede que a largura ultrapasse o container */
+  object-fit: contain; /* Mantém a proporção da imagem */
+}
+
+.logo-principal {
+  height: 50px; /* Altura fixa para a logo principal */
+  max-width: 100%; /* Impede que a largura ultrapasse o container */
+  object-fit: contain; /* Mantém a proporção da imagem */
+}
+
+.header .navbar {
+  flex-grow: 1;
+  justify-content: center; /* Centraliza a navegação */
+  align-items: center; /* Alinha verticalmente */
+}
+
+.header .logo {
+  height: 85px;
+  margin-right: 20px; /* Espaço entre a logo e os links */
+  vertical-align: middle;
+  display: inline-block;
+  position: static; /* Remove estilos posicionais */
+}
+.header .logo img {
+  height: 95px; /* Define uma altura fixa */
+  max-width: 100%; /* Impede que a largura ultrapasse o container */
+  object-fit: contain; /* Mantém a proporção da imagem */
+  vertical-align: middle; /* Alinha verticalmente no meio */
+}
+
+.header a.nav-item {
+  text-decoration: none; /* Remove sublinhado */
+  position: relative; /* Necessário para o pseudo-elemento */
+  padding-bottom: 5px;
+  margin: 0 10px; /* Espaçamento entre os links */
+}
+
+..header a.nav-item:not(.logo)::after {
+  content: ""; /* Pseudo-elemento */
+  display: block;
+  height: 2px;
+  width: 0;
+  background: currentColor; /* Cor da linha igual ao texto */
+  transition: width 0.3s ease;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+.header .nav-item::after {
+    content: ""; /* Cria um pseudo-elemento */
+    display: block; /* Necessário para o efeito */
+    height: 2px; /* Espessura da linha */
+    width: 0; /* Começa com largura 0 */
+    background: currentColor; /* Cor da linha igual à cor do texto */
+    transition: width 0.3s ease; /* Animação suave */
+    position: absolute; /* Para posicionar abaixo do texto */
+    left: 0; /* Começa na esquerda */
+    bottom: -5px; /* Distância abaixo do texto */
+}
+.header a.nav-item:not(.logo):hover::after {
+  width: 100%;
+}
+
+
+
+/* Estilos específicos para o cabeçalho */
+
+
+/* Estilos da seção Hero */
+      .hero {
+        background: url('coruja.png') center -50%/cover no-repeat; /* Ajusta a posição da imagem */
+        height: 100vh; /* A altura ocupa toda a tela */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+      }
+
+      .hero-content {
+        background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: bold;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+/* Estilos da seção Hero */	  
+
+/* Estilos da Seção "Sobre Nós" */
+
+      .section-sobre {
+        background-color: #f4f4f4;
+        padding:140px 0;
+		
+      }
+
+      .section-sobre .wrapper {
+       display: flex;
+       justify-content: space-between;
+       align-items: center; /* Centraliza verticalmente o texto e a imagem */
+       gap: 20px;
+       height: 100%; /* Garante que o wrapper ocupe o espaço completo da seção */
+	   align-items: flex-start; /* Alinha pela parte superior */
+      
+       }
+
+      .section-sobre .content {
+        flex: 1;
+      }
+
+      .section-sobre h3 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .section-sobre p {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: #555;
+      }
+
+      /* Lista de itens com efeito de hover */
+      .lista-artesanato li {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+      }
+
+      .lista-artesanato li:hover {
+        transform: translateX(10px); /* Move o item para a direita ao passar o mouse */
+      }
+
+      .lista-artesanato li::before {
+        content: "→"; /* Adiciona uma seta na frente de cada item */
+        margin-right: 10px;
+        color: #ff6347;
+      }
+
+      /* Espaço para a imagem ao lado */
+      .img-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%; /* Ocupa o espaço vertical da seção */
+		
+       }
+
+      .img-container img {
+       max-width: 100%;
+       max-height: 500px; /* Limita a altura da imagem */
+       object-fit: cover; /* Mantém a proporção, sem distorcer */
+       border-radius: 10px;
+       }
+/* Estilos da Seção "Sobre Nós" */	 
+
+
+
+
+
+
+/* Container principal do carrossel */
+#carrosselContainer {
+  padding-top: 1000px; /* Ajuste este valor conforme a altura do seu cabeçalho */
+  padding: 15px;
+  position: relative;
+  width: 100%; /* Para ocupar toda a largura disponível */
+  max-width: 1200px; /* Largura máxima do carrossel */
+  margin: 0 auto; /* Centraliza o carrossel */
+}
+
+
+/* Estilos gerais do carrossel */
+#carrosselContainer .carousel-inner {
+  position: relative; /* Para controlar a posição dos itens */
+}
+
+/* Itens do carrossel para diferentes tamanhos de tela */
+@media (max-width: 767px) {
+  #carrosselContainer .carousel-inner .carousel-item > div {
+    display: none; /* Oculta todos os itens */
+  }
+  #carrosselContainer .carousel-inner .carousel-item > div:first-child {
+    display: block; /* Exibe apenas o primeiro item */
+  }
+}
+
+#carrosselContainer .carousel-inner .carousel-item.active,
+#carrosselContainer .carousel-inner .carousel-item-next,
+#carrosselContainer .carousel-inner .carousel-item-prev {
+  display: flex; /* Mantém os itens visíveis durante a animação */
+}
+
+/* Estilos para telas médias e maiores */
+@media (min-width: 768px) {
+  #carrosselContainer .carousel-inner .carousel-item-end.active,
+  #carrosselContainer .carousel-inner .carousel-item-next {
+    transform: translateX(25%); /* Transição para a direita */
+  }
+
+  #carrosselContainer .carousel-inner .carousel-item-start.active,
+  #carrosselContainer .carousel-inner .carousel-item-prev {
+    transform: translateX(-25%); /* Transição para a esquerda */
+  }
+
+  #carrosselContainer .carousel-item {
+    justify-content: space-between; /* Espaçamento entre os itens */
+  }
+}
+
+/* Estilos para as imagens do card */
+#carrosselContainer .card img {
+  width: 100%; /* Define a largura da imagem */
+  height: 500px; /* A altura será proporcional à largura */
+  max-height: 60vh; /* Limita a altura máxima */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+}
+
+/* Itens do carrossel para telas menores */
+@media (max-width: 767px) {
+  #carrosselContainer .card img {
+    width: 100%; /* Largura total para dispositivos menores */
+    height: 75vh; /* Altura ajustada para telas menores */
+  }
+}
+
+/* Reseta o transform em itens do carrossel */
+#carrosselContainer .carousel-inner .carousel-item-end,
+#carrosselContainer .carousel-inner .carousel-item-start {
+  transform: translateX(0); /* Para garantir que os itens voltem ao estado inicial */
+}
+
+/* Estilo dos cards */
+#carrosselContainer .card {
+  
+  border-radius: 15px; /* Define o raio das bordas, ajuste conforme desejado */
+  overflow: hidden; /* Garante que as bordas arredondadas sejam aplicadas corretamente */
+  position: relative; /* Permite o posicionamento absoluto de overlays */
+   width: 300px; /* Define a largura fixa dos cards */
+  margin: 0 10px; /* Espaçamento entre os cards */
+}
+
+/* Estilo para overlays dentro do card */
+#carrosselContainer .card .card-img-overlays {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+}
+
+/* Estilo para links */
+#carrosselContainer a {
+  text-decoration: none; /* Remove sublinhado de links */
+}
+
+/* Estilo dos indicadores do carrossel */
+#carrosselContainer .indicator {
+  border: 1px solid rgb(202, 202, 202);
+  padding: 3px 6px;
+  color: lightgray; /* Cor inicial dos indicadores */
+}
+
+#carrosselContainer .indicator:hover {
+  background-color: blue; /* Cor ao passar o mouse */
+  border: 1px solid blue; /* Borda ao passar o mouse */
+  color: white; /* Cor do texto ao passar o mouse */
+  transition: 200ms; /* Transição suave */
+}
+
+/* Estilo para o botão de flutuação */
+#carrosselContainer .float-end {
+  padding-top: 10px; /* Espaço no topo */
+}
+
+/* ///////////////////////////////////////////////////////////////// */
+
+#carrosselContainer {
+  padding: 55px;
+  position: relative;
+}
+
+#carrosselContainer .d-flex {
+  display: flex;
+  justify-content: space-between; /* Distribui o título e os botões */
+  align-items: center; /* Centraliza verticalmente o conteúdo */
+}
+
+#carrosselContainer .ms-auto {
+  margin-left: auto; /* Garante que os botões fiquem alinhados à direita */
+}
+
+#carrosselContainer a {
+  text-decoration: none;
+}
+
+#carrosselContainer .btn {
+  min-width: 35px;
+  text-align: center;
+}
+
+
+/* Estilos da Seção "Carrossel" */
+
+/* Estilos da Seção "Rodapé" */
+
+.footer {
+    background-color: #333; /* Fundo escuro */
+    color: #fff; /* Texto claro */
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+	 margin-top: 0;
+     padding-top: 10px;
+}
+
+.footer-section {
+    margin-bottom: 15px;
+}
+
+.footer h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    margin-top: 1px;
+    border-top: 1px solid #fff;
+    padding-top: 1px;
+    font-size: 12px;
+}
+
+/* Estilos da Seção "Rodapé" */
+
+/* Estilos da Seção "Whatsapp" */
+
+.whatsapp-button {
+    position: fixed; /* Fixa na tela */
+    bottom: 20px; /* Distância do canto inferior */
+    right: 20px; /* Distância do canto direito */
+    z-index: 100; /* Garante que o ícone fique sobre outros elementos */
+    width: 60px; /* Tamanho do botão */
+    height: 60px;
+    border-radius: 50%; /* Torna o botão circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+    overflow: hidden;
+}
+
+.whatsapp-button img {
+    width: 100%; /* Ajusta a imagem para ocupar todo o botão */
+    height: 100%;
+    object-fit: cover;
+}
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Aumenta o ícone levemente */
+    transition: transform 0.2s ease-in-out;
+}
+
+
+/* Estilos da Seção "Whatsapp" */
+
+
