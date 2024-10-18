@@ -15,14 +15,8 @@ myCarousel.forEach((el) => {
   }
 });
 
-$(document).ready(function() {
-  // Previne a rolagem ao clicar nos botões do carrossel
-  $('#carrosselContainer a[data-bs-slide]').on('click', function(event) {
-    event.preventDefault(); // Previne a ação padrão de rolagem
-  });
-
-  // Mantém a funcionalidade de rolagem para outros links
-  $('a[href^="#"]').not('#carrosselContainer a[data-bs-slide]').on('click', function(event) {
+$(document).ready(function () {
+  $('a[href^="#"]').not('[data-bs-slide]').on('click', function (event) {
     var target = $(this.getAttribute('href'));
     if (target.length) {
       event.preventDefault();
@@ -35,18 +29,31 @@ $(document).ready(function() {
 
 
 
-
 function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("active"); // Ativa ou desativa o menu
+  const menu = document.getElementById('menu');
+  menu.classList.toggle('active'); // Alterna entre abrir e fechar o menu
 }
 
+// Fecha o menu se uma opção for selecionada
 function hideMenu() {
-    const menu = document.getElementById("menu");
-    menu.classList.remove("active"); // Remove a classe que mostra o menu
+  const menu = document.getElementById('menu');
+  menu.classList.remove('active');
 }
 
+$(document).ready(function () {
+  // Fecha o menu ao clicar em uma das opções
+  $('#menu a').on('click', function () {
+    hideMenu();
+  });
 
-
-
-
+  // Fecha o menu ao clicar fora dele
+  $(document).on('click', function (event) {
+    const menu = $('#menu');
+    const menuIcon = $('.menu-icon');
+    // Verifica se o clique foi fora do menu e do ícone do menu
+    if (!menu.is(event.target) && menu.has(event.target).length === 0 &&
+        !menuIcon.is(event.target) && menuIcon.has(event.target).length === 0) {
+      hideMenu();
+    }
+  });
+});
