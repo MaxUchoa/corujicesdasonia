@@ -26,3 +26,18 @@ $(document).ready(function() {
     }
   });
 });
+
+
+
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("active"); // Ativa ou desativa o menu
+}
+
+function hideMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.remove("active"); // Remove a classe que mostra o menu
+}
+
+
+
