@@ -289,7 +289,7 @@ header {
   margin-top: 10px; /* Reduz a margem superior */
     /*padding-top: 0; /* Remove espaçamento interno desnecessário no topo */
      
-    top: -40px; /* Ajuste para mover o carrossel para cima */
+    top: 30px; /* Ajuste para mover o carrossel para cima */
     transition: top 0.3s ease; /* Transição suave se quiser animar */
   
   
