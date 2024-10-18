@@ -16,7 +16,13 @@ myCarousel.forEach((el) => {
 });
 
 $(document).ready(function() {
-  $('a[href^="#"]').on('click', function(event) {
+  // Previne a rolagem ao clicar nos botões do carrossel
+  $('#carrosselContainer a[data-bs-slide]').on('click', function(event) {
+    event.preventDefault(); // Previne a ação padrão de rolagem
+  });
+
+  // Mantém a funcionalidade de rolagem para outros links
+  $('a[href^="#"]').not('#carrosselContainer a[data-bs-slide]').on('click', function(event) {
     var target = $(this.getAttribute('href'));
     if (target.length) {
       event.preventDefault();
@@ -29,6 +35,7 @@ $(document).ready(function() {
 
 
 
+
 function toggleMenu() {
     const menu = document.getElementById("menu");
     menu.classList.toggle("active"); // Ativa ou desativa o menu
@@ -38,6 +45,8 @@ function hideMenu() {
     const menu = document.getElementById("menu");
     menu.classList.remove("active"); // Remove a classe que mostra o menu
 }
+
+
 
 
 
