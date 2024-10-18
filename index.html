@@ -1,494 +1,246 @@
-
-body {
-    background-color: #f4f4f4 !important; /* Cinza claro */
-    margin: 0; /* Remove margens padrão */
-    padding: 0; /* Remove espaçamento padrão */
-    font-family: Arial, sans-serif;
-}
-
-/* cabeçalho */
-
-
-/* Estilo do Header */
-/* Estilo do Header */
-header {
-    display: flex;
-    position: fixed;
-    justify-content: space-between; /* Espaço entre logo e menu */
-    align-items: center;
-    background-color: white;
-    padding: 10px 200px;
-    font-family: 'French Script MT', cursive;
-    font-size: 40px;
-    width: 100%; /* Header ocupa toda a largura */
-    z-index: 1000;
-    top: 0;
-	
-}
-
-/* Estilo da Logo */
-.logo img {
-    max-height: 85px;
-}
-
-/* Barra de Navegação */
-.navbar {
-    display: flex;
-    align-items: center;
-}
-
-/* Menu principal */
-.menu {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-	
-}
-
-/* Esconde o menu no mobile */
-.menu-icon {
-    display: none;
-    cursor: pointer;
-}
-
-.menu li {
-    margin: 0 15px;
-}
-
-/* Estilo dos Links */
-.menu a {
-    color: black;
-    text-decoration: none;
-    padding: 8px 15px;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-/* Linha ao passar o mouse */
-.menu a::after {
-    content: "";
-    display: block;
-    height: 2px;
-    width: 0;
-    background: currentColor;
-    transition: width 0.3s ease;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-}
-
-.menu a:hover::after {
-    width: 100%;
-}
-
-/* Ícone do menu para mobile */
-.menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: black;
-}
-
-/* Estilo Responsivo */
-@media (max-width: 768px) {
-    /* Exibe o ícone do menu */
-    .menu-icon {
-        display: block;
-    }
-
-    /* Esconde o menu inicialmente */
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 92px; /* Abaixo do header */
-        left: 0;
-        width: 100%; /* Ocupa toda a largura */
-        background-color: white; /* Fundo escuro transparente */
-        z-index: 999;
-		border-radius: 10px;
-    }
-
-    /* Itens do menu no mobile */
-    .menu li {
-        margin: 15px 0;
-        text-align: center;
-    }
-
-    /* Exibe o menu quando ativo */
-    .menu.active {
-        display: flex;
-    }
-}
-
-/* Estilo Responsivo para Mobile */
-@media (max-width: 768px) {
-    .menu {
-        display: none; /* Esconde o menu inicialmente */
-        flex-direction: column; /* Coloca os itens do menu em coluna */
-        position: fixed; /* Fixar o menu na tela */
-        top: 92px; /* Abaixo do header */
-        left: 0; /* Começa na borda esquerda */
-        width: 100%; /* Ocupa toda a largura */
-        background-color: white; /* Fundo escuro transparente */
-        z-index: 999; /* Garante que fique acima de outros elementos */
-        align-items: flex-start; /* Alinha à esquerda */
-        padding-left: 20px; /* Espaçamento entre o menu e a borda esquerda */
-    }
-
-    .menu li {
-        margin: 10px 0; /* Espaçamento vertical entre itens do menu */
-    }
-
-    .menu-icon {
-        display: block; /* Exibe o ícone do menu no mobile */
-    }
-
-    .menu.active {
-        display: flex; /* Exibe o menu quando ativo */
-    }
-
-    /* Links do menu */
-    .menu a {
-        width: 100%; /* O link ocupa toda a largura da tela */
-        text-align: left; /* Alinha o texto à esquerda */
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     
+    <title>Corujices da Sônia</title>
 
-/* Estilos específicos para o cabeçalho */
+    <!-- Principal CSS do Bootstrap -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos customizados para esse template -->
+	
+    <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"/>
+    
+    
+  </head>
+
+  <body>
+    <!-- Cabeçalho -->
+    
+	<header class="header">
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+    </div>
+
+    <nav class="navbar">
+        <!-- Ícone do menu (hambúrguer) para mobile -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <!-- Menu de navegação -->
+        <ul id="menu" class="menu">
+    <li><a href="index.html" onclick="hideMenu()">Home</a></li>
+    <li><a href="#sobre" onclick="hideMenu()">Sobre</a></li>
+    <li><a href="#carrosselContainer" onclick="hideMenu()">Artes</a></li>
+    <li><a href="#contato" onclick="hideMenu()">Contato</a></li>
+</ul>
+
+    </nav>
+</header>
 
 
-/* Estilos da seção Hero */
-      .hero {
-        background: url('coruja.png') center -50%/cover no-repeat; /* Ajusta a posição da imagem */
-        height: 130vh; /* A altura ocupa toda a tela */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-align: center;
-      }
 
-      .hero-content {
-        background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
-        padding: 100px;
-        border-radius: 10px;
-      }
+	
+	
+    <!-- Cabeçalho -->
+	
+    <!-- Seção Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Bem-vindo ao Corujices da Sônia</h1>
+        <p>Artes exclusivas feitas à mão com carinho e dedicação.</p>
+        <a href="https://wa.me/5592992158280" target="_blank" class="btn btn-primary btn-lg">Entre em Contato</a>
+      </div>
+    </section>
+	<!-- Seção Hero -->
+	
+	<!-- Seção Sobre Nós -->
+    <section class="section-sobre" id="sobre">
+      <div class="container">
+        <div class="wrapper">
+          <!-- Conteúdo textual -->
+          <div class="content">
+            <h3>Sobre Mim</h3>
+            <p>Corujices da Sônia é uma loja de artesanato dedicada a transformar amor em arte. Cada peça é feita com carinho, refletindo tradição e criatividade.</p>
+            <p>Nossos produtos são inspirados em temas diversos e confeccionados com técnicas exclusivas, garantindo qualidade e originalidade.</p>
+            <ul class="lista-artesanato">
+              <li>Trabalhos em crochê e tricô</li>
+              <li>Peças em madeira pintada à mão</li>
+              <li>Artes em tecido: bonecas, bolsas e mantas</li>
+              <li>Decoração sustentável com materiais recicláveis</li>
+              <li>Personalização de presentes e lembranças</li>
+            </ul>
+          </div>
 
-      .hero h1 {
-        font-size: 4rem;
-        font-weight: bold;
-      }
-
-      .hero p {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-      }
+          <!-- Espaço para a imagem -->
+          <div class="img-container">
+            <img src="simbolo.jpg" alt="Imagem de Artesanato">
+          </div>
+        </div>
+      </div>
+    </section>
+	<!-- Seção Sobre Nós -->
+	
+	<!-- Seção Carrossel 
+	
+	
+       
+      <!-- Slides do Carrossel -->
+	  <!-- Fotos por 350x500 -->
 	  
-/* Estilos da seção Hero */	  
+     <div class="container mt-3 mb-1" id="carrosselContainer">
+  <div class="row mx-auto my-auto justify-content-center g-0">
+    <div id="carrosselCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="d-flex align-items-center mb-2">
+        <h3 class="mb-0">Conheça minhas Artes</h3>
+        <div class="d-flex ms-auto">
+          <a class="btn btn-sm btn-primary me-2 p-1" href="#carrosselCarousel" role="button" data-bs-slide="prev">
+            &lt;
+          </a>
+          <a class="btn btn-sm btn-primary p-1" href="#carrosselCarousel" role="button" data-bs-slide="next">
+            &gt;
+          </a>
+        </div>
+      </div>
+      <!-- Slides do Carrossel -->
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-img">
+                <img src="01.jpg" class="img-fluid">
+              </div>
+              <div class="card-img-overlays">Slide 1</div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-img">
+                <img src="02.jpg" class="img-fluid">
+              </div>
+              <div class="card-img-overlays">Slide 2</div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-img">
+                <img src="03.jpg" class="img-fluid">
+              </div>
+              <div class="card-img-overlays">Slide 3</div>
+            </div>
+          </div>
+        </div>
+         <div class="carousel-item">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-img">
+                <img src="04.jpg" class="img-fluid">
+              </div>
+              <div class="card-img-overlays">Slide 4</div>
+            </div>
+          </div>
+        </div>
+		 <div class="carousel-item">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-img">
+                <img src="05.jpg" class="img-fluid">
+              </div>
+              <div class="card-img-overlays">Slide 5</div>
+            </div>
+          </div>
+        </div>
+		 <div class="carousel-item">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-img">
+                <img src="06.jpg" class="img-fluid">
+              </div>
+              <div class="card-img-overlays">Slide 6</div>
+            </div>
+          </div>
+        </div>
+		 <div class="carousel-item">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-img">
+                <img src="07.jpg" class="img-fluid">
+              </div>
+              <div class="card-img-overlays">Slide 7</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	
+   
+	<!-- Seção Carrossel -->
+	
+	<!-- Seção Rodapé -->
+	<footer class="footer">
+    <div class="footer-section">
+        <h3>Sobre Mim</h3>
+        <p>Na Corujices da Sônia, me dedico a oferecer peças de artesanato únicas e feitas com amor, combinando tradição e inovação em cada criação.</p>
+    </div>
+    <div class="footer-section">
+        <h3>Horário de Funcionamento</h3>
+        <p>Segunda a Sexta<br>08h às 18h</p>
+    </div>
+    <div class="footer-section">
+        <h3>Contato</h3>
+        <p>R. José Florêncio, 478-A - Petrópolis<br>Manaus - AM, 69063-395</p>
+        <p>(92) 9215-8280</p>
+    </div>
+    <div class="footer-bottom">
+        <p>Todos os direitos reservados 2024 | Desenvolvido por <strong>Maxwell Uchoa</strong></p>
+    </div>
+</footer>
+	<!-- Seção Rodapé -->
+	
+	<!-- Seção Icone do WhatsApp -->
+	
+	<a href="https://wa.me/5592992158280" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+	
+	<!-- Seção Icone do WhatsApp -->
+	
+	
+   
 
-/* Estilos da Seção "Sobre Nós" */
-
-      .section-sobre {
-        background-color: #f4f4f4;
-        padding:40px 0;
-		
-      }
-
-      .section-sobre .wrapper {
-       display: flex;
-       justify-content: space-between;
-       align-items: center; /* Centraliza verticalmente o texto e a imagem */
-       gap: 20px;
-       height: 100%; /* Garante que o wrapper ocupe o espaço completo da seção */
-	   align-items: flex-start; /* Alinha pela parte superior */
-      
-       }
-
-      .section-sobre .content {
-        flex: 1;
-      }
-
-      .section-sobre h3 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #333;
-      }
-
-      .section-sobre p {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-        color: #555;
-      }
-
-      /* Lista de itens com efeito de hover */
-      .lista-artesanato li {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        position: relative;
-        transition: transform 0.3s ease-in-out;
-        cursor: pointer;
-      }
-
-      .lista-artesanato li:hover {
-        transform: translateX(10px); /* Move o item para a direita ao passar o mouse */
-      }
-
-      .lista-artesanato li::before {
-        content: "→"; /* Adiciona uma seta na frente de cada item */
-        margin-right: 10px;
-        color: #ff6347;
-      }
-
-      /* Espaço para a imagem ao lado */
-      .img-container {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%; /* Ocupa o espaço vertical da seção */
-		
-       }
-
-      .img-container img {
-       max-width: 100%;
-       max-height: 500px; /* Limita a altura da imagem */
-       object-fit: cover; /* Mantém a proporção, sem distorcer */
-       border-radius: 10px;
-       }
-/* Estilos da Seção "Sobre Nós" */	 
-
-
-
-
-
-
-/* Container principal do carrossel */
- #carrosselContainer {
-  padding-top: 1000px; /* Ajuste este valor conforme a altura do seu cabeçalho */
-  padding: 15px;
-  position: relative;
-  width: 100%; /* Para ocupar toda a largura disponível */
-  max-width: 1200px; /* Largura máxima do carrossel */
-  margin: 0 auto; /* Centraliza o carrossel */
-  
-  margin-top: 10px; /* Reduz a margem superior */
-    /*padding-top: 0; /* Remove espaçamento interno desnecessário no topo */
-     
-    top: -40px; /* Ajuste para mover o carrossel para cima */
-    transition: top 0.3s ease; /* Transição suave se quiser animar */
-  
-  
-  
-}
-
-
-/* Estilos gerais do carrossel */
-#carrosselContainer .carousel-inner {
-  position: relative; /* Para controlar a posição dos itens */
-}
-
-/* Itens do carrossel para diferentes tamanhos de tela */
-@media (max-width: 767px) {
-  #carrosselContainer .carousel-inner .carousel-item > div {
-    display: none; /* Oculta todos os itens */
-  }
-  #carrosselContainer .carousel-inner .carousel-item > div:first-child {
-    display: block; /* Exibe apenas o primeiro item */
-  }
-}
-
-#carrosselContainer .carousel-inner .carousel-item.active,
-#carrosselContainer .carousel-inner .carousel-item-next,
-#carrosselContainer .carousel-inner .carousel-item-prev {
-  display: flex; /* Mantém os itens visíveis durante a animação */
-}
-
-/* Estilos para telas médias e maiores */
-@media (min-width: 768px) {
-  #carrosselContainer .carousel-inner .carousel-item-end.active,
-  #carrosselContainer .carousel-inner .carousel-item-next {
-    transform: translateX(25%); /* Transição para a direita */
-  }
-
-  #carrosselContainer .carousel-inner .carousel-item-start.active,
-  #carrosselContainer .carousel-inner .carousel-item-prev {
-    transform: translateX(-25%); /* Transição para a esquerda */
-  }
-
-  #carrosselContainer .carousel-item {
-    justify-content: space-between; /* Espaçamento entre os itens */
-  }
-}
-
-/* Estilos para as imagens do card */
-#carrosselContainer .card img {
-  width: 100%; /* Define a largura da imagem */
-  height: 500px; /* A altura será proporcional à largura */
-  max-height: 60vh; /* Limita a altura máxima */
-  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
-}
-
-/* Itens do carrossel para telas menores */
-@media (max-width: 767px) {
-  #carrosselContainer .card img {
-    width: 100%; /* Largura total para dispositivos menores */
-    height: 75vh; /* Altura ajustada para telas menores */
-  }
-}
-
-/* Reseta o transform em itens do carrossel */
-#carrosselContainer .carousel-inner .carousel-item-end,
-#carrosselContainer .carousel-inner .carousel-item-start {
-  transform: translateX(0); /* Para garantir que os itens voltem ao estado inicial */
-}
-
-/* Estilo dos cards */
-#carrosselContainer .card {
-  
-  border-radius: 15px; /* Define o raio das bordas, ajuste conforme desejado */
-  overflow: hidden; /* Garante que as bordas arredondadas sejam aplicadas corretamente */
-  position: relative; /* Permite o posicionamento absoluto de overlays */
-   width: 350px; /* Define a largura fixa dos cards */
-  margin: 0 10px; /* Espaçamento entre os cards */
-}
-
-/* Estilo para overlays dentro do card */
-#carrosselContainer .card .card-img-overlays {
-  position: absolute;
-  bottom: 15%;
-  left: 10%;
-}
-
-/* Estilo para links */
-#carrosselContainer a {
-  text-decoration: none; /* Remove sublinhado de links */
-}
-
-/* Estilo dos indicadores do carrossel */
-#carrosselContainer .indicator {
-  border: 1px solid rgb(202, 202, 202);
-  padding: 3px 6px;
-  color: lightgray; /* Cor inicial dos indicadores */
-}
-
-#carrosselContainer .indicator:hover {
-  background-color: blue; /* Cor ao passar o mouse */
-  border: 1px solid blue; /* Borda ao passar o mouse */
-  color: white; /* Cor do texto ao passar o mouse */
-  transition: 200ms; /* Transição suave */
-}
-
-/* Estilo para o botão de flutuação */
-#carrosselContainer .float-end {
-  padding-top: 10px; /* Espaço no topo */
-}
-
-#carrosselContainer {
-  padding: 55px;
-  position: relative;
-}
-
-#carrosselContainer .d-flex {
-  display: flex;
-  justify-content: space-between; /* Distribui o título e os botões */
-  align-items: center; /* Centraliza verticalmente o conteúdo */
-}
-
-#carrosselContainer .ms-auto {
-  margin-left: auto; /* Garante que os botões fiquem alinhados à direita */
-}
-
-#carrosselContainer a {
-  text-decoration: none;
-}
-
-#carrosselContainer .btn {
-  min-width: 35px;
-  text-align: center;
-}
-/* ///////////////////////////////////////////////////////////////// */
-
-
-
-/* Estilos da Seção "Carrossel" */
-
-/* Estilos da Seção "Rodapé" */
-
-.footer {
-    background-color: #333; /* Fundo escuro */
-    color: #fff; /* Texto claro */
-    padding: 20px 0;
-    text-align: center;
-    font-family: Arial, sans-serif;
-	 margin-top: 0;
-     padding-top: 10px;
-}
-
-.footer-section {
-    margin-bottom: 15px;
-}
-
-.footer h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    text-transform: uppercase;
-}
-
-.footer p {
-    margin: 5px 0;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.footer-bottom {
-    margin-top: 1px;
-    border-top: 1px solid #fff;
-    padding-top: 1px;
-    font-size: 12px;
-}
-
-/* Estilos da Seção "Rodapé" */
-
-/* Estilos da Seção "Whatsapp" */
-
-.whatsapp-button {
-    position: fixed; /* Fixa na tela */
-    bottom: 20px; /* Distância do canto inferior */
-    right: 20px; /* Distância do canto direito */
-    z-index: 100; /* Garante que o ícone fique sobre outros elementos */
-    width: 60px; /* Tamanho do botão */
-    height: 60px;
-    border-radius: 50%; /* Torna o botão circular */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
-    overflow: hidden;
-}
-
-.whatsapp-button img {
-    width: 100%; /* Ajusta a imagem para ocupar todo o botão */
-    height: 100%;
-    object-fit: cover;
-}
-.whatsapp-button:hover {
-    transform: scale(1.1); /* Aumenta o ícone levemente */
-    transition: transform 0.2s ease-in-out;
-}
-
-
-/* Estilos da Seção "Whatsapp" */
-
-
+    <!-- Principal JavaScript do Bootstrap
+    ================================================== -->
+    <!-- Foi colocado no final para a página carregar mais rápido -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+	<script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="javascript.js"></script>
+  </body>
+</html>
