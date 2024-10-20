@@ -57,3 +57,62 @@ $(document).ready(function () {
     }
   });
 });
+
+function openLightbox(imageSrc) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    
+    lightboxImage.src = imageSrc; // Define a imagem a ser exibida
+    lightbox.classList.add('show'); // Adiciona classe para mostrar
+
+    // Usando setTimeout para garantir que a animação de transformação ocorra
+    setTimeout(() => {
+        const lightboxContent = document.querySelector('.lightbox-content');
+        lightboxContent.style.transform = 'scale(1)'; // Aumenta para escala normal
+    }, 10); // Um pequeno atraso para garantir que a classe show seja aplicada
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.querySelector('.lightbox-content');
+
+    lightboxContent.style.transform = 'scale(0)'; // Reduz a escala antes de ocultar
+
+    // Usando setTimeout para garantir que a animação de transformação ocorra antes de remover a classe
+    setTimeout(() => {
+        lightbox.classList.remove('show'); // Remove classe para ocultar
+    }, 500); // Tempo deve ser igual ao tempo de transição definido no CSS
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll('.animate-on-scroll'); // Seleciona os elementos a serem animados
+
+    function animateOnScroll() {
+        const windowHeight = window.innerHeight;
+
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+
+            // Verifica se o elemento está na viewport
+            if (elementTop < windowHeight) {
+                element.classList.add('animate'); // Adiciona a classe para iniciar a animação
+            }
+        });
+    }
+
+    // Escuta o evento de rolagem
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Chama a função uma vez para animar os elementos que estão visíveis ao carregar a página
+});
+
+elements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+
+    // Verifica se o elemento está na viewport
+    if (elementTop < windowHeight) {
+        element.classList.add('animate');
+    } else {
+        element.classList.remove('animate'); // Remove a animação quando sair da viewport
+    }
+});
