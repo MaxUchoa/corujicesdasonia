@@ -8,7 +8,7 @@ body {
 /* cabeçalho */
 
 
-
+/* Estilo do Header */
 /* Estilo do Header */
 header {
     display: flex;
@@ -420,6 +420,15 @@ header {
   min-width: 35px;
   text-align: center;
 }
+/* Efeito de zoom nos cards */
+#carrosselContainer .card {
+  transition: transform 0.3s ease; /* Transição suave para o efeito */
+}
+
+#carrosselContainer .card:hover {
+  transform: scale(1.05); /* Aumenta o card em 5% ao passar o mouse */
+}
+
 /* ///////////////////////////////////////////////////////////////// */
 
 
@@ -489,3 +498,76 @@ header {
 
 
 /* Estilos da Seção "Whatsapp" */
+
+.lightbox {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fixa na tela */
+    z-index: 1000; /* Fica na frente */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+    justify-content: center; /* Centraliza conteúdo */
+    align-items: center; /* Centraliza verticalmente */
+    opacity: 0; /* Início invisível */
+    transition: opacity 0.5s ease; /* Transição de opacidade */
+}
+
+.lightbox.show {
+    display: flex; /* Exibe o lightbox */
+    opacity: 1; /* Torna visível */
+}
+
+.lightbox-content {
+    max-width: 90%; /* Limita a largura máxima */
+    max-height: 90%; /* Limita a altura máxima */
+    margin: auto; /* Centraliza imagem */
+    transition: transform 0.5s ease; /* Transição de transformação */
+    transform: scale(0); /* Início com escala 0 */
+}
+
+.lightbox.show .lightbox-content {
+    transform: scale(1); /* Aumenta para escala normal */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+/*///////////////////////////////////////////////*/
+
+/* Definindo a animação */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px); /* Move o elemento para baixo */
+    opacity: 0; /* Começa invisível */
+  }
+  to {
+    transform: translateY(0); /* Move o elemento para a posição original */
+    opacity: 1; /* Fica visível */
+  }
+}
+
+/* Classe para ativar a animação */
+.animate {
+  animation: slideUp 2s ease forwards; /* Aplica a animação */
+}
+
+.title-animate {
+  animation: slideUp 2s ease forwards; /* Título sobe em 2 segundos */
+}
+
+/* Classe para o slide com duração de 3s */
+.slide-animate {
+  animation: slideUp 3s ease forwards; /* Slide sobe em 3 segundos */
+}
